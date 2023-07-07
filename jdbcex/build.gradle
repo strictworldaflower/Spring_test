@@ -22,6 +22,8 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
+    implementation 'int.esa.ccsds.mo:ENCODING_STRING:8.0'
+    implementation 'int.esa.ccsds.mo:ENCODING_STRING:8.0'
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
@@ -34,6 +36,19 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.0'
+
+    implementation group: 'org.modelmapper' , name: 'modelmapper', version: '3.0.0'
+
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.2'
+
+    implementation group: 'jstl', name: 'jstl', version: '1.2'
 }
 
 test {
