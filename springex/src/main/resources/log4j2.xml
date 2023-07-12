@@ -17,6 +17,10 @@
             <appender-ref ref="console" />
         </logger>
 
+        <logger name="com.example.springex.mapper" level="TRACE" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
         <root level="INFO" additivity="false">
             <AppenderRef ref="console"/>
         </root>

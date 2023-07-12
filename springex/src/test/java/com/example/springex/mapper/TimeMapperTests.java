@@ -1,4 +1,4 @@
-package com.example.springex.sample.mapper;
+package com.example.springex.mapper;
 
 import com.example.springex.mapper.TimeMapper;
 import com.example.springex.mapper.TimeMapper2;

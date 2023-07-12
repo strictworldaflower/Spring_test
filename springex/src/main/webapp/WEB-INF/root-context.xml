@@ -5,12 +5,6 @@
        xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
-<!--    <bean class="com.example.springex.sample.SampleDAO"></bean>-->
-
-<!--    <bean class="com.example.springex.sample.SampleService"></bean>-->
-
-    <context:component-scan base-package="com.example.springex.sample"></context:component-scan>
-
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
         <property name="jdbcUrl" value="jdbc:mariadb://localhost:3309/webdb"></property>
@@ -36,5 +30,8 @@
     </bean>
 
     <mybatis:scan base-package="com.example.springex.mapper"></mybatis:scan>
+
+    <context:component-scan base-package="com.example.springex.config"/>
+    <context:component-scan base-package="com.example.springex.service"/>
 
 </beans>
