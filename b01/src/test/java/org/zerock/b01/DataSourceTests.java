@@ -25,6 +25,7 @@ public class DataSourceTests {
         Connection con = dataSource.getConnection();
 
         log.info(con);
+
         Assertions.assertNotNull(con);
     }
 }

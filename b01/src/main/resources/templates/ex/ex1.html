@@ -1,57 +1,78 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 
+<!--Thymeleaf 간단 예제-->
+
+<!-- Model로 전달된 데이터 출력을 위해 th: 속성 이용-->
+<h4>[[${list}]]</h4>
+<hr/>
+<h4 th:text="${list}"></h4>
+
+<!-- 반복문 처리: th:each -->
 <ul>
-  <li th:each="str,status: ${list}">
-    [[${status.index}]] -- [[${str}]]
-  </li>
+    <li th:each="str: ${list}" th:text="${str}"></li>
 </ul>
 
+<!-- 반복문 처리: th:block -->
 <ul>
-  <th:block th:each="str: ${list}">
-    <li>[[${str}]]</li>
-  </th:block>
-</ul>
-
-<ul>
-  <li th:each="str,status: ${list}">
-  <span th:if="${status.odd}"> ODD -- [[${str}]]</span>
-  <span th:unless="${status.odd}"> EVEN -- [[${str}]]</span>
-  </li>
-</ul>
-
-<ul>
-  <li th:each="str, status: ${list}">
-    <span th:text="${status.odd} ?'ODD ---'+${str}"></span>
-  </li>
-</ul>
-
-<ul>
-  <li th:each="str,status: ${list}">
-    <span th:text="${status.odd} ?'ODD ---'+${str} : 'EVEN ---'+${str}"></span>
-  </li>
-</ul>
-
-<ul>
-  <li th:each="str,status: ${list}">
-    <th:block th:switch="${status.index % 3}">
-      <span th:case="0">0</span>
-      <span th:case="1">1</span>
-      <span th:case="2">2</span>
+    <th:block th:each="str: ${list}">
+        <li>[[${str}]]</li>
     </th:block>
-  </li>
 </ul>
 
+<!-- 반복문의 내부 상태에 변수 추가: status 변수-->
+<ul>
+    <li th:each="str,status: ${list}">
+        [[${status.index}]] -- [[${str}]]
+    </li>
+</ul>
+
+<!-- 제어문 th:if / th:unless -->
+<ul>
+    <li th:each="str,status: ${list}">
+        <span th:if="${status.odd}"> ODD -- [[${str}]]</span>
+        <span th:unless="${status.odd}"> EVEN -- [[${str}]]</span>
+    </li>
+</ul>
+
+<!-- 제어문: 삼항 연산자-->
+<ul>
+    <li th:each="str,status: ${list}">
+        <span th:text="${status.odd} ? 'ODD ---'+${str}"></span>
+    </li>
+</ul>
+
+<ul>
+    <li th:each="str,status: ${list}">
+        <span th:text="${status.odd} ? 'ODD ---' +${str}: 'EVEN ---' +${str}"></span>
+    </li>
+</ul>
+
+<!-- 제어문 th:switch -->
+<ul>
+    <li th:each="str,status: ${list}">
+        <th:block th:switch="${status.index%3}">
+            <span th:case="0">0</span>
+            <span th:case="1">1</span>
+            <span th:case="2">2</span>
+        </th:block>
+    </li>
+</ul>
+
+<!-- 링크 처리-->
 <a th:href="@{/hello}">Go to /hello</a>
 
-<a th:href="@{/hello(name='AAA',age=16)}">Go to /hello</a>
+<!-- 링크 쿼리 스트링 처리-->
+<a th:href="@{/hello(name='AAA', age= 16)}">Go to /hello</a>
+
+<!-- GET 방식 링크에서 한글, 공백: Thymeleaf 사용하면 URL 인코딩 처리 자동-->
+<a th:href="@{/hello(name='한글 처리',age=16)}">Go to /hello</a>
 
 
 </body>
-</html>
 </html>

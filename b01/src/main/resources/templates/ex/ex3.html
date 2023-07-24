@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorate="~{layout/layout1.html}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout1.html}" lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <title>ex3</title>
+</head>
+<body>
 
 <div layout:fragment="content">
 
   <h1>ex3.html</h1>
+
 </div>
 
+<script layout:fragment="script" th:inline="javascript">
+
+  const arr = [[${arr}]]
+</script>
+
+</body>
 </html>
