@@ -1,6 +1,8 @@
 # Spring_test
 
 - b01 : SpringBoot, MariaDB, Thymeleaf, Bootstrap으로 게시판 구현. Java 17(corretto), Spring boot 3.1.2 <br>
+
+MariaDB: port-3309로 변경, webuser/webuser, db-webdb로 생성
   
 ![1](https://github.com/Sujin-Lim/Spring_test/assets/121391614/06f632a9-3a3e-4c44-977b-5363627849ed)
 
